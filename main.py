@@ -107,6 +107,7 @@ class PermalinkHandler(Handler):
 app = webapp2.WSGIApplication([
     ('/', IndexHandler),
     ('/blog', BlogHandler),
+    ('/blog/newpost', NewPostHandler),
     ('/blog/(\d+)', PermalinkHandler),
     ('/newpost', NewPostHandler)
 ], debug=True)
