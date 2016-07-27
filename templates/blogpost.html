@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% for blog in blogs %}
+    <div class="row marketing">
+        <div class="col-md-12">
+        <h4>{{blog.subject}}</h4>
+        <p>{{blog.content}}</p>
+        <form method="post">
+          <button type="input" class="btn btn-danger" name="danger">
+            Delete
+          </button>
+        </form>
+      </div>
+    </div>
+  {% endfor %}
+
+  {{key}}
+{% endblock %}
