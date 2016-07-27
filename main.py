@@ -81,7 +81,7 @@ class NewPostHandler(Handler):
 
 
 class PermalinkHandler(Handler):
-    
+
     def get(self, blog_id):
         key = Blog.get_by_id(int(blog_id))
         self.render("blogpost.html", blogs = [key])
