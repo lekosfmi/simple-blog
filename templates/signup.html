@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+  <form method="post">
+    <div class="form-group">
+      <label class="label-control">Username</label>
+      <input type="text" class="form-control" name="username" value="lekosfmi" />
+      <p class="error">{{error_username}}</p>
+    </div>
+    <div class="form-group">
+      <label class="label-control">Password</label>
+      <input type="password" class="form-control" name="password" value="blueegg" />
+      <p class="error">{{error_password}}</p>
+    </div>
+    <div class="form-group">
+      <label class="label-control">Verify Password</label>
+      <input type="password" class="form-control" name="verify" value="blueegg" />
+      <p class="error">{{error_verify}}</p>
+    </div>
+    <div class="form-group">
+      <label class="label-control">Email (optional)</label>
+      <input type="Email" class="form-control" name="email" value="{{email}}" />
+      <p class="error">{{error_email}}</p>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="pull-right btn btn-primary">Signup</button>
+    </div>
+  </form>
+{% endblock %}

@@ -15,6 +15,8 @@
 # limitations under the License.
 #
 import os
+import hashlib
+import hmac
 import jinja2
 import re
 import time
@@ -24,6 +26,33 @@ from google.appengine.ext import db
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir), autoescape=True)
+
+def hash_str(s):
+    SECRET = 'imsosecret'
+    return hmac.new(SECRET, s).hexdigest()
+
+def make_secure_val(s):
+    return "%s|%s" % (s, hash_str(s))
+
+def check_secure_val(h):
+    val = h.split('|')[0]
+    if h == make_secure_val(val):
+        return val
+
+
+# Regex for username, password, and email
+USER_RE = re.compile(r"^[a-zA-Z0-9_-]{3,20}$")
+def valid_username(username):
+    return username and USER_RE.match(username)
+
+PASS_RE = re.compile(r"^.{3,20}$")
+def valid_password(password):
+    return password and PASS_RE.match(password)
+
+EMAIL_RE  = re.compile(r'^[\S]+@[\S]+\.[\S]+$')
+def valid_email(email):
+    return not email or EMAIL_RE.match(email)
+
 
 class Handler(webapp2.RequestHandler):
 
@@ -62,6 +91,7 @@ class NewPostHandler(Handler):
 
     def get(self):
         self.render('newpost.html')
+
 
     def post(self):
         subject = self.request.get('subject')
@@ -104,10 +134,58 @@ class PermalinkHandler(Handler):
         self.redirect('/blog')
 
 
+class SignupHandler(Handler):
+
+    def get(self):
+        self.render('signup.html')
+
+    def post(self):
+        have_error = False
+        username = self.request.get('username')
+        password = self.request.get('password')
+        verify = self.request.get('verify')
+        email = self.request.get('email')
+
+        params = dict(username = username, email = email)
+
+        if not valid_username(username):
+            params['error_username'] = "Username is not valid"
+            have_error = True
+
+        if not valid_password(password):
+            params['error_password'] = "Password is not valid"
+            have_error = True
+        elif password != verify:
+            params['error_verify'] = "Your passwords didn't match."
+            have_error = True
+
+        if not valid_email(email):
+            params['error_email'] = "Email is not valid"
+            have_error = True
+
+        if have_error:
+            self.render('signup.html', **params)
+        else:
+            self.redirect('/success?username=' + username)
+
+
+class SuccessHandler(Handler):
+
+    def get(self):
+        username = self.request.get('username')
+        if valid_username(username):
+            self.render('success.html', username = username)
+        #else:
+            #self.redirect('/')
+
+
 app = webapp2.WSGIApplication([
-    ('/', IndexHandler),
+    ('/', IndexHandler), # redirect to BlogHandler
+    ('/newpost', NewPostHandler),
+    ('/signup', SignupHandler),
+    ('/success', SuccessHandler),
     ('/blog', BlogHandler),
-    ('/blog/newpost', NewPostHandler),
-    ('/blog/(\d+)', PermalinkHandler),
-    ('/newpost', NewPostHandler)
+    ('/blog/newpost', NewPostHandler), # redirect to '/'
+    ('/blog/signup', SignupHandler), # redirect to '/signup'
+    ('/blog/(\d+)', PermalinkHandler)
 ], debug=True)

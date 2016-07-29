@@ -24,6 +24,10 @@ body {
   line-height: 40px;
 }
 
+.error {
+  color: red;
+}
+
 /* Custom page footer */
 .footer {
   padding-top: 19px;
