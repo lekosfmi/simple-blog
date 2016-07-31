@@ -2,11 +2,16 @@
 
 {% block content %}
   {% for blog in blogs %}
-    <div class="row marketing">
-      <div class="col-md-12">
-        <h4>{{blog.subject}}</h4>
-        <p>{{blog.content}}</p>
-        <a href="/blog/{{blog.key().id()}}">View</a>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{blog.subject}}</h3>
+      </div>
+      <div class="panel-body">{{blog.content}}</div>
+      <div class="panel-footer text-right">
+        <a href="/blog/{{blog.key.id()}}">
+          <span class="glyphicon glyphicon-heart"></span>
+        </a>
+        <a href="/blog/{{blog.key.id()}}"><span class="glyphicon glyphicon-eye-open"></span></a>
       </div>
     </div>
   {% endfor %}

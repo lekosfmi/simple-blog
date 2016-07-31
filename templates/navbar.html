@@ -1,10 +1,21 @@
 <div class="header clearfix">
   <nav>
     <ul class="nav nav-pills pull-right">
-      <li role="presentation"><a href="/">Home</a></li>
-      <li role="presentation"><a href="/signup">Signup</a></li>
-      <li role="presentation"><a href="/newpost">New Post</a></li>
+      <li role="presentation"><a href="/">Blog</a></li>
+      {% if user %}
+        <li role="presentation"><a href="/newpost">New Post</a></li>
+        <li role="presentation"><a href="/logout">Log Out</a></li>
+      {% else %}
+        <li role="presentation"><a href="/login">Login</a></li>
+        <li role="presentation"><a href="/signup">Sign Up</a></li>
+      {% endif %}
     </ul>
   </nav>
-  <h3 class="text-muted">Sample Blog</h3>
+  <h3>
+    {% if user %}
+      Hello, {{user.name}}
+    {% else %}
+      Simple Blog
+    {% endif %}
+  </h3>
 </div>
