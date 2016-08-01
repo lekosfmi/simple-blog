@@ -21,7 +21,9 @@ import webapp2
 from models.users_model import *
 
 template_dir = os.path.join(os.path.dirname(__file__), '../views')
-jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir), autoescape=True)
+jinja_env = jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir),
+                               autoescape=True)
+
 
 def render_jinja(template, **params):
     t = jinja_env.get_template(template)

@@ -33,8 +33,8 @@ class EditComment(Controller):
         c = Comments.get_by_id(key)
 
         if self.user:
-            self.render('edit-comment.html', content = c.content,
-                                             blog_id = c.blog_id)
+            self.render('edit-comment.html',
+                        content=c.content, blog_id=c.blog_id)
         else:
             self.redirect('/%s' % c.blog_id)
 
@@ -45,7 +45,7 @@ class EditComment(Controller):
 
         if content:
             if self.user.name == c.author.name:
-                c.content = content # update the comment's content
+                c.content = content  # update the comment's content
                 c.put()
                 time.sleep(0.1)
 
@@ -66,9 +66,9 @@ class NewComment(Controller):
         # new comment have content,
         # the current user, and the blog_id
         if self.user and content:
-            c = Comments(content = content,
-                         author = self.user,
-                         blog_id = blog_id)
+            c = Comments(content=content,
+                         author=self.user,
+                         blog_id=blog_id)
             c.put()
             time.sleep(0.1)
 

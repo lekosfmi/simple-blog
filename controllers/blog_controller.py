@@ -21,14 +21,14 @@ class NewPost(Controller):
         content = self.request.get('content')
 
         if self.user and subject and content:
-            b = Blog(subject = subject,
-                     content = content,
-                     author = self.user)
+            b = Blog(subject=subject,
+                     content=content,
+                     author=self.user)
             b.put()
-            time.sleep(0.1) # sleep is used due to lag time
-            self.redirect('/%d' % b.key.id()) # redirect to permalink
+            time.sleep(0.1)  # sleep is used due to lag time
+            self.redirect('/%d' % b.key.id())  # redirect to permalink
         else:
-            self.render('newpost.html', subject = subject, content = content)
+            self.render('newpost.html', subject=subject, content=content)
 
 
 class Permalink(Controller):
@@ -41,8 +41,7 @@ class Permalink(Controller):
                                    "ORDER BY created DESC" % int(blog_id))
 
         # render the blog object and all of it's comment
-        self.render("blogpost.html", blogs = [blog_key],
-                                     comments = comment_key)
+        self.render("blogpost.html", blogs=[blog_key], comments=comment_key)
 
 
 class DeletePost(Permalink):
@@ -53,14 +52,14 @@ class DeletePost(Permalink):
         pass
 
     def post(self, blog_id):
-        key = int(blog_id) # get id and turns into integer
-        post = Blog.get_by_id(key) # use id to fine the blog post item
+        key = int(blog_id)  # get id and turns into integer
+        post = Blog.get_by_id(key)  # use id to fine the blog post item
 
         if self.user.name == post.author.name:
-            post.key.delete() # delete the found item
-            time.sleep(0.1) # sleep is used because of replication lag time
+            post.key.delete()  # delete the found item
+            time.sleep(0.1)  # sleep is used because of replication lag time
 
-        self.redirect('/') # redirect to home
+        self.redirect('/')  # redirect to home
 
 
 class EditPost(Permalink):
@@ -72,7 +71,7 @@ class EditPost(Permalink):
 
         if self.user:
             # rendering the blog post using blog_id
-            self.render("editpost.html", blogs = [key])
+            self.render("editpost.html", blogs=[key])
         else:
             self.redirect("/login")
 
@@ -86,14 +85,13 @@ class EditPost(Permalink):
         # with author's name
         if self.user.name == post.author.name:
             if subject and content:
-                post.subject = subject # updating the subject
-                post.content = content # updating the content
+                post.subject = subject  # updating the subject
+                post.content = content  # updating the content
                 post.put()
                 time.sleep(0.1)
-                self.redirect('/%s' % key) # redirect to the blog post
+                self.redirect('/%s' % key)  # redirect to the blog post
             else:
                 msg = "Something went wrong. Please try again."
-                self.render("editpost.html", blogs = [key],
-                                             error_message = msg)
+                self.render("editpost.html", blogs=[key], error_message=msg)
         else:
             self.redirect('/login')

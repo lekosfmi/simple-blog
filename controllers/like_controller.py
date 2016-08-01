@@ -19,7 +19,7 @@ class Like(Controller):
 
         if post and self.user:
             post.like += 1
-            like = Likes(blog_id = key, author = self.user)
+            like = Likes(blog_id=key, author=self.user)
             like.put()
             post.put()
             time.sleep(0.2)
@@ -41,7 +41,7 @@ class Unlike(Controller):
 
         if post and self.user:
             post.like -= 1
-            like = Likes(blog_id = key, author = self.user)
+            like = Likes(blog_id=key, author=self.user)
             like.put()
             post.put()
             time.sleep(0.2)

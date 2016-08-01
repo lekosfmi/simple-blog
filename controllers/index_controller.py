@@ -8,4 +8,4 @@ class Index(Controller):
 
     def get(self):
         blogs = ndb.gql("SELECT * FROM Blog ORDER BY created DESC")
-        self.render('blog.html', blogs = blogs)
+        self.render('blog.html', blogs=blogs)

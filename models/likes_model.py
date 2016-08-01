@@ -6,5 +6,5 @@ class Likes(ndb.Model):
 
     """Like's Info"""
 
-    blog_id = ndb.IntegerProperty(required = True)
+    blog_id = ndb.IntegerProperty(required=True)
     author = ndb.StructuredProperty(User)

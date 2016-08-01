@@ -24,4 +24,4 @@ app = webapp2.WSGIApplication([
 
     ('/like/(\d+)', Like),
     ('/unlike/(\d+)', Unlike)
-], debug = True)
+], debug=True)

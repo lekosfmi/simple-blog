@@ -21,7 +21,7 @@ class Login(Controller):
                 self.redirect('/')
             else:
                 error = "Username or password is incorrect"
-                self.render('login.html', username = username, error = error)
+                self.render('login.html', username=username, error=error)
 
 
 class Logout(Controller):
@@ -48,7 +48,7 @@ class Signup(Controller):
         self.verify = self.request.get('verify')
         self.email = self.request.get('email')
 
-        params = dict(username = self.username, email = self.email)
+        params = dict(username=self.username, email=self.email)
 
         username_exist = User.by_name(self.username)
 
