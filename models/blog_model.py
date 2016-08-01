@@ -3,14 +3,14 @@ from users_model import User
 
 def blog_key(name = 'default'):
 
-    """Assigns a key to Blog"""
+    """Assign a key to Blog"""
 
     return ndb.Key('blogs', name)
 
 
 class Blog(ndb.Model):
 
-    """Blog's Model info"""
+    """Blog's Info"""
 
     author = ndb.StructuredProperty(User)
     content = ndb.TextProperty(required = True)

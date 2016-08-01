@@ -8,6 +8,8 @@ from random import choice
 
 from google.appengine.ext import ndb
 
+# Checks & Validate: username, password, and email
+
 USER_RE = re.compile(r"^[a-zA-Z0-9_-]{3,20}$")
 def valid_username(username):
     return username and USER_RE.match(username)
@@ -20,7 +22,11 @@ EMAIL_RE  = re.compile(r'^[\S]+@[\S]+\.[\S]+$')
 def valid_email(email):
     return not email or EMAIL_RE.match(email)
 
+# Developing secure cookies for registering
+# and login user
+
 def make_secure_val(val):
+    # SECRET is obtain by importing from secret.py
     return '%s|%s' % (val, hmac.new(SECRET, val).hexdigest())
 
 def check_secure_val(secure_val):
@@ -46,6 +52,9 @@ def users_key(group = 'default'):
 
 
 class User(ndb.Model):
+
+    """ User's Info """
+
     name = ndb.StringProperty(required = True)
     pw_hash = ndb.StringProperty(required = True)
     email = ndb.StringProperty()

@@ -4,7 +4,7 @@ from users_model import User
 
 class Comments(ndb.Model):
 
-    """Comment's Model Info"""
+    """Comment's Info"""
 
     author = ndb.StructuredProperty(User)
     blog_id = ndb.IntegerProperty(required = True)
