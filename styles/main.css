@@ -18,7 +18,7 @@ body {
   padding-left: 15px;
 }
 
-h3, .panel-title, label, a, .form-control {
+h3, .panel-title, label, a, .form-control, .author-by, h6 {
   color: #f36c0c;
 }
 
@@ -38,8 +38,12 @@ h3, .panel-title, label, a, .form-control {
   font-weight: 700;
 }
 
-.nav > li > a:focus, .nav > li> a:hover {
+.nav > li > a:hover,
+.nav > li > a:focus {
   background: transparent;
+  outline: none;
+  outline-offset: none;
+  color: #f36c0c;
 }
 
 .error {
@@ -77,6 +81,7 @@ textarea {
 
 span {
   margin: 0 5px;
+  font-size: 16px;
 }
 
 a, a:hover {
@@ -89,9 +94,46 @@ a:hover {
   opacity: .4;
 }
 
-.btn-primary, .btn-primary:hover, .btn-primary:focus {
-  background: #f36c0c;
-  border-color: #f36c0c
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background: #f36c0c !important;
+  border-color: #f36c0c !important;
+  outline: none !important;
+  outline-offset: none !important;
+}
+
+.author-by {
+  font-weight: 500;
+}
+
+.author-by span {
+  font-size: 14px;
+  color: #ada8a8;
+}
+
+.panel-comment {
+  margin: 20px;
+}
+
+.panel-comment .author-by,
+.panel-comment .comment-tool {
+  display: inline-block;
+}
+
+.panel-comment .panel-footer  {
+  margin-bottom: 10px;
+}
+
+.panel-comment .comment-tool {
+  float: right;
+  margin-top: 10px;
+}
+
+.panel-comment .author-by span {
+  margin: 0;
+  font-size: 13px;
 }
 
 /* Custom page footer */

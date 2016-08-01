@@ -1,0 +1,12 @@
+<form action="/new-comment/{{blog.key.id()}}" method="post" class="form">
+  <div class="form-group">
+    <textarea type="text" class="form-control" name="content" placeholder="Add your comments here!" rows="5"></textarea>
+  </div>
+  <div class="form-group text-right">
+    {% if user %}
+      <button type="submit" class="btn btn-primary">Add Comment</button>
+    {% else %}
+      <a type="button" href="/login" class="btn btn-primary">Login</a>
+    {% endif %}
+  </div>
+</form>
