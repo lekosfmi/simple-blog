@@ -12,6 +12,7 @@
         <textarea type="text" class="form-control" name="content" rows="10" cols="5">{{blog.content | safe}}</textarea>
       </div>
       <div class="form-group text-right">
+        <a type="button" href="/{{blog.key.id()}}" class="btn btn-primary">Back</a>
         <button type="submit" class="btn btn-primary">Save</button>
       </div>
     </form>

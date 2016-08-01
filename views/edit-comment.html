@@ -1,5 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+  <form method="post" class="form">
+    <div class="form-group">
+      <label class="label-control">Update Your Comment!</label>
+      <textarea type="text" class="form-control" name="content" placeholder="Add your comments here!" rows="5">{{content}}</textarea>
+    </div>
+    <div class="form-group text-right">
+      <a type="button" href="/{{blog_id}}" class="btn btn-primary">Back</a>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </form>
 {% endblock %}

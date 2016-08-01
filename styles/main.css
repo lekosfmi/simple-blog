@@ -73,6 +73,20 @@ h3, .panel-title, label, a, .form-control, .author-by, h6 {
   box-shadow: none;
 }
 
+#form-delete-post,
+#form-like-post,
+#form-unlike-post,
+#form-delete-comment {
+  display: inline-block;
+}
+
+#form-delete-post a,
+#form-like-post a,
+#form-unlike-post a,
+#form-delete-comment a {
+  cursor: pointer;
+}
+
 textarea {
   border: 1px solid #f36c0c !important;
   border-radius: 5px !important;
@@ -120,6 +134,10 @@ a:hover {
 .panel-comment .author-by,
 .panel-comment .comment-tool {
   display: inline-block;
+}
+
+.panel-comment .panel-body {
+  padding-bottom: 5px;
 }
 
 .panel-comment .panel-footer  {

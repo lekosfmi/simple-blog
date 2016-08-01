@@ -40,6 +40,9 @@ class Permalink(Controller):
 class DeletePost(Permalink):
 
     def get(self, blog_id):
+        pass
+
+    def post(self, blog_id):
         key = int(blog_id) # get id and turns into integer
         post = Blog.get_by_id(key) # use id to fine the blog post item
 
@@ -58,7 +61,7 @@ class EditPost(Permalink):
         if self.user:
             self.render("editpost.html", blogs = [key])
         else:
-            self.redirect("/")
+            self.redirect("/login")
 
     def post(self, blog_id):
         key = int(blog_id) # get id and turns into integer
@@ -77,4 +80,4 @@ class EditPost(Permalink):
                 msg = "Something went wrong. Please try again."
                 self.render("editpost.html", blogs = [key], error_message = msg)
         else:
-            self.redirect('/')
+            self.redirect('/login')

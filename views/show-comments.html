@@ -16,9 +16,11 @@
 
     {% if user.name == comment.author.name %}
       <div class="comment-tool">
-        <a href="/delete-comment/{{comment.key.id()}}">
-          <span class="glyphicon glyphicon-remove"></span>
-        </a>
+        <form id="form-delete-comment" action="/delete-comment/{{comment.key.id()}}" method="post">
+          <a onclick="document.getElementById('form-delete-comment').submit()">
+            <span class="glyphicon glyphicon-remove"></span>
+          </a>
+        </form>
         <a href="/edit-comment/{{comment.key.id()}}">
           <span class="glyphicon glyphicon-pencil"></span>
         </a>

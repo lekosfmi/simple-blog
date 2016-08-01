@@ -8,6 +8,9 @@ from models.users_model import *
 class DeleteComment(Controller):
 
     def get(self, comment_id):
+        pass
+
+    def post(self, comment_id):
         key = int(comment_id)
         c = Comments.get_by_id(key)
         blog_id = int(c.blog_id)
@@ -21,8 +24,28 @@ class DeleteComment(Controller):
 
 class EditComment(Controller):
 
-    def get(self):
-        self.render('edit-comment.html')
+    def get(self, comment_id):
+        key = int(comment_id)
+        c = Comments.get_by_id(key)
+
+        if self.user:
+            self.render('edit-comment.html', content = c.content,
+                                             blog_id = c.blog_id)
+        else:
+            self.redirect('/%s' % c.blog_id)
+
+    def post(self, comment_id):
+        key = int(comment_id)
+        c = Comments.get_by_id(key)
+        content = self.request.get('content')
+
+        if content:
+            if self.user.name == c.author.name:
+                c.content = content
+                c.put()
+                time.sleep(0.1)
+
+        self.redirect('/%s' % c.blog_id)
 
 
 class NewComment(Controller):

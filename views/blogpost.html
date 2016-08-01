@@ -14,21 +14,20 @@
           <p class="text-left author-by">Author: {{blog.author.name}}</p>
         {% endif %}
 
-        <form method="post">
-          {% if user %}
-            <a href="/{{blog.key.id()}}">
-              <span class="glyphicon glyphicon-heart"></span>
-            </a>
-          {% endif %}
-          {% if user.name == blog.author.name %}
-            <a href="/edit/{{blog.key.id()}}">
-              <span class="glyphicon glyphicon-pencil"></span>
-            </a>
-            <a href="/delete/{{blog.key.id()}}">
+        {% include "like-unlike-post.html" %}
+
+
+        {% if user.name == blog.author.name %}
+          <a href="/edit/{{blog.key.id()}}">
+            <span class="glyphicon glyphicon-pencil"></span>
+          </a>
+          <form id="form-delete-post" method="post" action="/delete/{{blog.key.id()}}">
+            <a onclick="document.getElementById('form-delete-post').submit()">
               <span class="glyphicon glyphicon-remove"></span>
             </a>
-          {% endif %}
-        </form>
+          </form>
+        {% endif %}
+
       </div>
     </div>
 
