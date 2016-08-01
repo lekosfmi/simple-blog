@@ -8,6 +8,8 @@ from google.appengine.ext import ndb
 
 class Like(Controller):
 
+    """Like A Post"""
+
     def get(self, blog_id):
         pass
 
@@ -27,6 +29,8 @@ class Like(Controller):
 
 
 class Unlike(Controller):
+
+    """Unlike A Post"""
 
     def get(self, blog_id):
         pass

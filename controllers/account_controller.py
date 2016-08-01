@@ -5,6 +5,8 @@ from models.users_model import *
 
 class Login(Controller):
 
+    """Login Page"""
+
     def get(self):
         self.render('login.html')
 
@@ -12,16 +14,19 @@ class Login(Controller):
         username = self.request.get('username')
         password = self.request.get('password')
 
-        user = User.login(username, password)
-        if user:
-            self.login(user)
-            self.redirect('/')
-        else:
-            error = "Username or password is incorrect"
-            self.render('login.html', username = username, error = error)
+        if username and password:
+            user = User.login(username, password)
+            if user:
+                self.login(user)
+                self.redirect('/')
+            else:
+                error = "Username or password is incorrect"
+                self.render('login.html', username = username, error = error)
 
 
 class Logout(Controller):
+
+    """Logout Page"""
 
     def get(self):
         self.logout()
@@ -36,6 +41,7 @@ class Signup(Controller):
         self.render('signup.html')
 
     def post(self):
+        # user is created if have_error remains False
         have_error = False
         self.username = self.request.get('username')
         self.password = self.request.get('password')
@@ -65,8 +71,10 @@ class Signup(Controller):
             have_error = True
 
         if have_error:
+            # throwing error messages
             self.render('signup.html', **params)
         else:
+            # create new user
             user = User.register(self.username, self.password, self.email)
             user.put()
             self.login(user)

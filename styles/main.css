@@ -18,7 +18,14 @@ body {
   padding-left: 15px;
 }
 
-h3, .panel-title, label, a, .form-control, .author-by, h6 {
+/* Default text color for most of the text */
+a,
+h3,
+h6,
+label,
+.author-by,
+.form-control,
+.panel-title {
   color: #f36c0c;
 }
 
@@ -27,7 +34,10 @@ h3, .panel-title, label, a, .form-control, .author-by, h6 {
   padding-bottom: 20px;
   border-bottom: 1px solid #e2651b;
 }
-/* Make the masthead heading the same height as the navigation */
+
+/*
+ * Header & Nav Style
+*/
 .header h3 {
   margin-top: 0;
   margin-bottom: 0;
@@ -46,87 +56,9 @@ h3, .panel-title, label, a, .form-control, .author-by, h6 {
   color: #f36c0c;
 }
 
-.error {
-  color: red;
-}
-
-.panel, .panel-heading, .panel-footer {
-  border-width: 0;
-
-}
-
-.panel-default > .panel-heading, .panel-footer {
-  background-color: transparent;;
-}
-
-.form {
-  background: #fff;
-  padding: 15px 15px 5px 15px;
-  border-radius: 10px;
-}
-
-.form-control, .form-control:focus {
-  border-radius: 0;
-  border: 0;
-  border-bottom: 1px solid #f36c0c;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-#form-delete-post,
-#form-like-post,
-#form-unlike-post,
-#form-delete-comment {
-  display: inline-block;
-}
-
-#form-delete-post a,
-#form-like-post a,
-#form-unlike-post a,
-#form-delete-comment a {
-  cursor: pointer;
-}
-
-textarea {
-  border: 1px solid #f36c0c !important;
-  border-radius: 5px !important;
-  resize: vertical;
-}
-
-span {
-  margin: 0 5px;
-  font-size: 16px;
-}
-
-a, a:hover {
-  text-decoration: none;
-  background: transparent;
-  transition: all 0.5s ease;
-}
-
-a:hover {
-  opacity: .4;
-}
-
-.btn-primary,
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary:active {
-  background: #f36c0c !important;
-  border-color: #f36c0c !important;
-  outline: none !important;
-  outline-offset: none !important;
-}
-
-.author-by {
-  font-weight: 500;
-}
-
-.author-by span {
-  font-size: 14px;
-  color: #ada8a8;
-}
-
+/*
+ * Panel's Style
+ */
 .panel-comment {
   margin: 20px;
 }
@@ -154,11 +86,100 @@ a:hover {
   font-size: 13px;
 }
 
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #f36c0c;
+.panel,
+.panel-heading,
+.panel-footer {
+  border-width: 0;
+}
+
+.panel-default > .panel-heading,
+.panel-footer {
+  background-color: transparent;;
+}
+
+/*
+ * Form Style
+ */
+ #form-delete-post,
+ #form-like-post,
+ #form-unlike-post,
+ #form-delete-comment {
+   display: inline-block;
+ }
+
+ #form-delete-post a,
+ #form-like-post a,
+ #form-unlike-post a,
+ #form-delete-comment a {
+   cursor: pointer;
+ }
+
+.form {
+  background: #fff;
+  padding: 15px 15px 5px 15px;
+  border-radius: 10px;
+}
+
+.form-control,
+.form-control:focus {
+  border-radius: 0;
+  border: 0;
+  border-bottom: 1px solid #f36c0c;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+textarea {
+  border: 1px solid #f36c0c !important;
+  border-radius: 5px !important;
+  resize: vertical;
+}
+
+.error {
+  color: red;
+}
+
+/*
+ * Button & Span Style
+ */
+
+
+span {
+  margin: 0 5px;
+  font-size: 16px;
+}
+
+a, a:hover {
+  text-decoration: none;
+  background: transparent;
+  transition: all 0.5s ease;
+}
+
+a:hover {
+  opacity: .4;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background: #f36c0c !important;
+  border-color: #f36c0c !important;
+  outline: none !important;
+  outline-offset: none !important;
+}
+
+/*
+ * Styling the author's
+ * text name
+ */
+.author-by {
+  font-weight: 500;
+}
+
+.author-by span {
+  font-size: 14px;
+  color: #ada8a8;
 }
 
 /* Customize container */
@@ -167,30 +188,24 @@ a:hover {
     max-width: 730px;
   }
 }
+
 .container-narrow > hr {
   margin: 30px 0;
 }
 
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-}
-.jumbotron .btn {
-  padding: 14px 24px;
-  font-size: 21px;
-}
 
 /* Supporting marketing content */
 .marketing {
   margin: 40px 0;
 }
+
 .marketing p + h4 {
   margin-top: 28px;
 }
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
+
   /* Remove the padding we set earlier */
   .header,
   .marketing,
@@ -198,12 +213,9 @@ a:hover {
     padding-right: 0;
     padding-left: 0;
   }
+
   /* Space out the masthead */
   .header {
     margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
   }
 }

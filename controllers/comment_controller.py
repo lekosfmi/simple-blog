@@ -7,6 +7,8 @@ from models.users_model import *
 
 class DeleteComment(Controller):
 
+    """Delete Comment"""
+
     def get(self, comment_id):
         pass
 
@@ -23,6 +25,8 @@ class DeleteComment(Controller):
 
 
 class EditComment(Controller):
+
+    """Edit Comment"""
 
     def get(self, comment_id):
         key = int(comment_id)
@@ -41,7 +45,7 @@ class EditComment(Controller):
 
         if content:
             if self.user.name == c.author.name:
-                c.content = content
+                c.content = content # update the comment's content
                 c.put()
                 time.sleep(0.1)
 
@@ -50,6 +54,8 @@ class EditComment(Controller):
 
 class NewComment(Controller):
 
+    """New Comment"""
+
     def get(self, blog_id):
         pass
 
@@ -57,6 +63,8 @@ class NewComment(Controller):
         blog_id = int(blog_id)
         content = self.request.get('content')
 
+        # new comment have content,
+        # the current user, and the blog_id
         if self.user and content:
             c = Comments(content = content,
                          author = self.user,

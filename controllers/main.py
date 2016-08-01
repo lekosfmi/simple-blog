@@ -30,12 +30,18 @@ def render_jinja(template, **params):
 
 class Controller(webapp2.RequestHandler):
 
-    """ Defines functions for rendering pages & setting cookies """
+    """ Parent Controller """
+
+    # Defines functions for
+    # rendering pages, setting cookies,
+    # and along with login and signup
 
     def write(self, *a, **kw):
         self.response.write(*a, **kw)
 
     def render_str(self, template, **params):
+        # get the current user in order
+        # to be use in the views
         params['user'] = self.user
         return render_jinja(template, **params)
 
