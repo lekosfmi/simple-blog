@@ -18,7 +18,7 @@ Site located at [lekosfmi-simple-blog.lekosfmi.com](http://lekosfmi-simple-blog.
  - User can comment on blog post
  - User can also like blog post
  
-## Technology Used:
+## Technology Stack:
 - [Jinja2](http://jinja.pocoo.org/docs/dev/)
 - [Webapp2](https://webapp2.readthedocs.io/en/latest/)
 - [Google App Engine](https://cloud.google.com/appengine/downloads#Google_App_Engine_SDK_for_Python)
