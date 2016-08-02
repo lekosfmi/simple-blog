@@ -1,7 +1,7 @@
-Simple Blog 
+Simple Blog
 --------------------
 
-A multi-users blogging webapp similiar to [Medium](https://medium.com). 
+A multi-users blogging webapp similiar to [Medium](https://medium.com).
 Site located at [lekosfmi-simple-blog.lekosfmi.com](http://lekosfmi-simple-blog.appspot.com).
 
 
@@ -17,7 +17,7 @@ Site located at [lekosfmi-simple-blog.lekosfmi.com](http://lekosfmi-simple-blog.
  - User can post a blog
  - User can comment on blog post
  - User can also like blog post
- 
+
 ## Technology Stack:
 - [Jinja2](http://jinja.pocoo.org/docs/dev/)
 - [Webapp2](https://webapp2.readthedocs.io/en/latest/)
