@@ -2,7 +2,7 @@ Simple Blog
 --------------------
 
 A multi-users blogging webapp similiar to [Medium](https://medium.com). 
-Site located at [lekosfmi-simple-blog.lekosfmi.com](http://lekosfmi-simple-blog.lekosfmi).
+Site located at [lekosfmi-simple-blog.lekosfmi.com](http://lekosfmi-simple-blog.appspot.com).
 
 
 ## Installation & Usage:
