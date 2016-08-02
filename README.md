@@ -1,7 +1,7 @@
 Simple Blog 
 --------------------
 
-A multi-user blogging webapp similiar to [Medium](https://medium.com). 
+A multi-users blogging webapp similiar to [Medium](https://medium.com). 
 Site located at [lekosfmi-simple-blog.lekosfmi.com](http://lekosfmi-simple-blog.lekosfmi).
 
 
@@ -13,7 +13,7 @@ Site located at [lekosfmi-simple-blog.lekosfmi.com](http://lekosfmi-simple-blog.
 5. Project will be initiated at [localhost:8080](http://localhost:8080)
 
 ## Some Features Include:
- - Account for user
+ - Account for users
  - User can post a blog
  - User can comment on blog post
  - User can also like blog post
