@@ -2,7 +2,7 @@
 body {
   padding-top: 20px;
   padding-bottom: 20px;
-  background: linear-gradient(#fff, #dc611b) fixed;
+  background: linear-gradient(#fff, #00d3fe) fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -26,13 +26,13 @@ label,
 .author-by,
 .form-control,
 .panel-title {
-  color: #f36c0c;
+  color: #545252;
 }
 
 /* Custom page header */
 .header {
   padding-bottom: 20px;
-  border-bottom: 1px solid #e2651b;
+  border-bottom: 1px solid #545252;
 }
 
 /*
