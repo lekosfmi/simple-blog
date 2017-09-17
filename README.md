@@ -24,4 +24,4 @@ Site located at [lekosfmi-simple-blog.lekosfmi.com](http://lekosfmi-simple-blog.
 - [Google App Engine](https://cloud.google.com/appengine/downloads#Google_App_Engine_SDK_for_Python)
 
 -------------------
-###### Copyright (c) 2016 Vanielle Le
+###### Copyright (c) Vanielle Le
